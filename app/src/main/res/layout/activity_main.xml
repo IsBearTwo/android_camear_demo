@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_above="@id/btns"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ImageView>
+
+    </LinearLayout>
+
+
+   <LinearLayout
+       android:id="@+id/btns"
+       android:layout_alignParentBottom="true"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <Button
+           android:text="拍照"
+           android:id="@+id/btn_takephoto"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"></Button>
+
+
+       <Button
+           android:id="@+id/btn_open_photo_album"
+           android:text="打开相册"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"></Button>
+   </LinearLayout>
+
+</RelativeLayout>
