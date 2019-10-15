@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
@@ -149,26 +149,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_OK) {
-            switch (requestCode) {
-                case REQUEST_OPEN_ALBUM:
-                    if (data != null) {
-                        Log.d(TAG, "onActivityResult:aaa " + data.getData());
-                        cropPhoto(data.getData(), false);
-                    }
-                    break;
-                case REQUEST_TAKE_PHOTO:
-                    if (data != null) {
-                        cropPhoto(takePhotoUri, true);
-                        Log.d(TAG, "onActivityResult:aaa " + takePhotoUri);
-                    }
-                    break;
-                case REQUEST_CROP_PHOTO:
-                    if (data != null) {
-                        img.setImageURI(cutUri);
-                    }
-                    break;
-            }
-        }
+        Log.d(TAG, "onActivityResult: " + requestCode);
+       if(resultCode == RESULT_OK){
+           switch (requestCode) {
+               case REQUEST_OPEN_ALBUM:
+                   if (data!=null) {
+                       Log.d(TAG, "onActivityResult:aaa "+data.getData());
+                       cropPhoto(data.getData(),false);
+                   }
+                   break;
+               case REQUEST_TAKE_PHOTO:
+                   Log.d(TAG, "onActivityResult:aaa "+takePhotoUri);
+                   cropPhoto(takePhotoUri,true);
+                   break;
+               case REQUEST_CROP_PHOTO:
+                   img.setImageURI(cutUri);
+                   break;
+           }
+       }
     }
 }
